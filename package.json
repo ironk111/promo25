@@ -1,0 +1,15 @@
+{
+  "name": "e-commerce_baez_tiziano",
+  "version": "1.0.0",
+  "description": "WELCOME",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
