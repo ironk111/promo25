@@ -4,7 +4,8 @@ document.querySelector("h1").innerText = productos;
 
 let array = [];
 
-for (let cards = 1; cards < 10; cards++) {
+function createCards(){
+  for (let cards = 1; cards < 10; cards++) {
     const card = `<div class="col">
       <div class="card h-100">
         <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${cards}.jpg" class="card-img-top" alt="...">
@@ -15,8 +16,12 @@ for (let cards = 1; cards < 10; cards++) {
         </div>
       </div>
     </div>`
+    //meter cards en el array
     array.push(card)
+  }
 }
+
+createCards();
 
 document.querySelector("section").innerHTML = array.join(""); //join : convierte array en string.
 
