@@ -14,25 +14,25 @@ let data = [
     {
       id: 1,
       nombre: "BMW",
-      modelo: 2006,
+      modelo: 2022,
       img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/1.jpg",
     },
     {
       id: 2,
       nombre: "Alfa Romeo",
-      modelo: 2003,
+      modelo: 2020,
       img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/2.jpg",
     },
     {
       id: 3,
-      nombre: "Suzuki",
-      modelo: 2000,
+      nombre: "Mercedes-Benz",
+      modelo: 2021,
       img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/3.jpg",
     },
     {
       id: 4,
-      nombre: "BMW",
-      modelo: 2008,
+      nombre: "Audi",
+      modelo: 2018,
       img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/4.jpg",
     },
     {
@@ -67,13 +67,13 @@ let data = [
     },
     {
       id: 10,
-      nombre: "Mercedes-Benz",
+      nombre: "Suzuki",
       modelo: 1999,
       img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/10.jpg",
     },
   ];
 
-// Obtener el ID del producto de la URL
+// Obtener ID del producto de la URL
 const params = new URLSearchParams(window.location.search);
 const productId = parseInt(params.get('prod'), 10);
 
