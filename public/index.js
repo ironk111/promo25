@@ -1,68 +1,73 @@
-//Array con sus respectivos objetos/productos
+//h1 productos
+document.querySelector("h1").innerText = "Dreams";
+//Array de objetos/productos
 let data = [
   {
     id: 1,
     nombre: "BMW",
     modelo: 2017,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/1.jpg",
+    category: "Sport",
   },
   {
     id: 2,
     nombre: "Alfa Romeo",
     modelo: 2018,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/2.jpg",
+    category: "Super",
   },
   {
     id: 3,
     nombre: "Mercedes-Benz",
     modelo: 2022,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/3.jpg",
+    category: "Sport",
   },
   {
     id: 4,
     nombre: "Audi",
     modelo: 2018,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/4.jpg",
+    category: "Super",
   },
   {
     id: 5,
     nombre: "Ferrari",
     modelo: 1986,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/5.jpg",
+    category: "Vintage",
   },
   {
     id: 6,
     nombre: "Lamborghini",
-    modelo: 1997,
+    modelo: 2019,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/6.jpg",
+    category: "Hyper",
   },
   {
     id: 7,
     nombre: "Chevrolet",
     modelo: 1993,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/7.jpg",
+    category: "Vintage",
   },
   {
     id: 8,
     nombre: "Dodge",
     modelo: 2019,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/8.jpg",
+    category: "Hyper",
   },
   {
     id: 9,
     nombre: "Masserati",
     modelo: 2023,
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/9.jpg",
-  },
-  {
-    id: 10,
-    nombre: "Suzuki",
-    modelo: 1999,
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/10.jpg",
+    category: "Super",
   },
 ];
 
-// Mostrar todas las tarjetas inicialmente en el section del body
+// Mostrar las cards en el section del body
 function card(product) {
   let cardsArray = product.map((producto) => `<div class="col">
       <div class="card h-100">
@@ -80,13 +85,16 @@ document.querySelector("section").innerHTML = cardsArray.join("");
 //Invoco la función y le paso el objeto entero
 card(data);
 
+//-------------------------------------------------------------
+//-----------------------BUSQUEDA------------------------------
+
 //Variables de búsqueda
 const input = document.querySelector("#input");
 const buttonSearch = document.querySelector("#search");
 
-// Función para filtrar los productos
+// Función filtrar los productos
 const filterList = () => {
-  // Obtener el valor del input, eliminar espacios y transformarlo a minúsculas
+  // Tomar el valor del input, eliminar espacios y transformarlo a minusculas
   const searchValue = input.value.trim().toLowerCase();
   // Ahora si filtrar los productos basados en el valor ingresado
   const filterData = data.filter((producto) => 
@@ -96,9 +104,44 @@ const filterList = () => {
   if (filterData.length > 0) {
     card(filterData);
   } else {
-    document.querySelector("section").innerHTML = "<p>No se ha encontrado ningún vehículo.</p>";
+    document.querySelector("section").innerHTML = '<p class="text-center">No se ha encontrado ningún vehículo.</p>';
   }
 };
 
-//Evento al hacer click en el boton de busqueda
+// Evento cuando haces click en el boton de busqueda
 buttonSearch.addEventListener("click", filterList);
+
+//-------------------------------------------------------------
+//--------------------BOTONES DE CATEGORIA---------------------
+
+// variable que contiene todos los botones de categorias
+const categoryButtons = document.querySelectorAll(".category-button");
+
+// filtrar productos por categoría
+function filterByCategory(category) {
+  const filteredProducts = data.filter((producto) => producto.category === category);
+  if (filteredProducts.length > 0) {
+    card(filteredProducts);
+  } else {
+    document.querySelector("section").innerHTML = '<p class="text-center">Todavía no hay dreams en esta categoría.</p>';
+  }
+}
+
+// Evento para "category-button"
+categoryButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const category = event.target.innerText;
+    filterByCategory(category);
+    document.querySelector("h1").innerText = category;
+  });
+});
+
+//------boton de home-------------
+// variable
+const homeButton = document.querySelector("#homeButton");
+
+// Evento para mostrar todas las cards
+homeButton.addEventListener("click", () => {
+  document.querySelector("h1").innerText = "Dreams";
+  card(data);
+});
