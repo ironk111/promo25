@@ -70,8 +70,10 @@ let data = [
 // Mostrar las cards en el section del body
 function card(product) {
   let cardsArray = product.map((producto) => `<div class="col">
-      <div class="card h-100">
-        <img src="${producto.img}" class="card-img-top" alt="...">
+      <div class="card h-100 card-hover">
+        <div class="image-container">
+          <img src="${producto.img}" class="img-fluid" alt="${producto.nombre}">
+        </div>
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
           <p class="card-text poppins-light">Modelo: ${producto.modelo}</p>
@@ -80,12 +82,12 @@ function card(product) {
       </div>
     </div>`);
 
-document.querySelector("section").innerHTML = cardsArray.join("");
+  document.querySelector("section").innerHTML = cardsArray.join("");
 }
+
 //Invoco la función y le paso el objeto entero
 card(data);
 
-//-------------------------------------------------------------
 //-----------------------BUSQUEDA------------------------------
 
 //Variables de búsqueda
@@ -132,16 +134,16 @@ categoryButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     const category = event.target.innerText;
     filterByCategory(category);
-    document.querySelector("h1").innerText = category;
+    document.querySelector("h1").innerText = category;// reemplazar el h1 por el nombre de la categoria
   });
 });
 
-//------boton de home-------------
+//-----BOTON DE HOME-----eliminado por: está redireccionado con href en index.html
 // variable
-const homeButton = document.querySelector("#homeButton");
+/*const homeButton = document.querySelector("#homeButton");
 
 // Evento para mostrar todas las cards
 homeButton.addEventListener("click", () => {
   document.querySelector("h1").innerText = "Dreams";
   card(data);
-});
+});*/

@@ -92,8 +92,9 @@ if (producto) {
                             <div class="col-md-6">
                                 <div class="card-body">
                                     <h5 class="card-title">${producto.nombre}</h5>
-                                    <p class="card-text poppins-light">Detalles del producto</p>
-                                    <h5 class="card-title">Modelo: ${producto.modelo}</h5>
+                                    <p class="card-text poppins-light">Modelo: ${producto.modelo}</p>
+                                    <p class="card-text poppins-light">Stock: </p>
+                                    <h5 class="card-title">precio</h5>
                                     <a href="#" class="btn btn-primary rounded-pill">Drive Now</a>
                                 </div>
                             </div>

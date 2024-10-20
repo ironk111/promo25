@@ -11,19 +11,51 @@
     <link rel="shortcut icon" href="img/logo-dreamdrive-pagina.webp" />
   </head>
 <body>
+  <style>
+    /*image container card*/
+    .image-container {
+      width: 100%;
+      height: 180px;
+      aspect-ratio: auto;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+  
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /*card container hover*/
+    .card-hover {
+      transition: opacity 0.3s ease-in-out;
+      opacity: 1;
+    }
+    .card-hover:hover {
+      opacity: 0.8;  
+    }
+    /* Spinner styles */
+    #spinner {
+      display: none; /* Ocultar el spinner inicialmente */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+        }
+  </style>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#" id="homeButton">
-            <img src="img/logopng-dreamdrive-pagina-removebg.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
-            DREAMDRIVE
+          <a class="navbar-brand" href="index.html" id="homeButton">
+            <img src="img/logopng-dreamdrive-pagina-removebg.png" alt="DreamDrive" width="60" height="60" class="d-inline-block align-text-center">
+            DreamDrive
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <!--aca se añaden los botones con js-->
+              <!--acá se añaden los botones con js-->
               
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
