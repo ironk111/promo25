@@ -1,69 +1,62 @@
 //h1 productos
-document.querySelector("h1").innerText = "Dreams";
+document.querySelector("h1").innerText = "Integrantes";
 //Array de objetos/productos
 let data = [
   {
     id: 1,
-    nombre: "BMW",
-    modelo: 2017,
+    nombre: "Benja",
+    cumple: "27 de agosto",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/1.jpg",
     category: "Sport",
   },
   {
     id: 2,
-    nombre: "Alfa Romeo",
-    modelo: 2018,
+    nombre: "Santino",
+    cumple: "2 de febrero",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/2.jpg",
     category: "Super",
   },
   {
     id: 3,
-    nombre: "Mercedes-Benz",
-    modelo: 2022,
+    nombre: "Tiziano",
+    cumple: "6 de septiembre",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/3.jpg",
     category: "Sport",
   },
   {
     id: 4,
-    nombre: "Audi",
-    modelo: 2018,
+    nombre: "Julián",
+    cumple: "10 de mayo",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/4.jpg",
     category: "Super",
   },
   {
     id: 5,
-    nombre: "Ferrari",
-    modelo: 1986,
+    nombre: "Luciano",
+    cumple: "16 de noviembre",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/5.jpg",
     category: "Vintage",
   },
   {
     id: 6,
-    nombre: "Lamborghini",
-    modelo: 2019,
+    nombre: "Ramiro",
+    cumple: "4 de febrero",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/6.jpg",
     category: "Hyper",
   },
   {
     id: 7,
-    nombre: "Chevrolet",
-    modelo: 1993,
+    nombre: "Lucas",
+    cumple: "31 de mayo",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/7.jpg",
     category: "Vintage",
   },
   {
     id: 8,
-    nombre: "Dodge",
-    modelo: 2019,
+    nombre: "Iván",
+    cumple: "21 de abril",
     img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/8.jpg",
     category: "Hyper",
-  },
-  {
-    id: 9,
-    nombre: "Masserati",
-    modelo: 2023,
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/9.jpg",
-    category: "Super",
   },
 ];
 
@@ -76,8 +69,8 @@ function card(product) {
         </div>
         <div class="card-body">
           <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text poppins-light">Modelo: ${producto.modelo}</p>
-          <a href="prods/producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Drive Now</a>
+          <p class="card-text poppins-light">Cumpleaños: ${producto.cumple}</p>
+          <a href="prods/producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Más...</a>
         </div>
       </div>
     </div>`);
@@ -106,7 +99,7 @@ const filterList = () => {
   if (filterData.length > 0) {
     card(filterData);
   } else {
-    document.querySelector("section").innerHTML = '<p class="text-center">No se ha encontrado ningún vehículo.</p>';
+    document.querySelector("section").innerHTML = '<p class="text-center">No se encontró nada.</p>';
   }
 };
 

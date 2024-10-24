@@ -1,10 +1,11 @@
 let menu = [
-    {text: "About", href: "/about"},
-    {text: "FAQs", href: "/faqs"},
-    {text: "Sport", href: "#", id: "sport", clase: "category-button"},
-    {text: "Super", href: "#", id: "super", clase: "category-button"},
-    {text: "Hyper", href: "#", id: "hyper", clase: "category-button"},
+    {text: "Nosotros", href: "/about"},
+    {text: "Proyectos", href: "/proyects"},
+    
 ]
+    /*{text: "Sport", href: "#", id: "sport", class: "category-button"},
+    {text: "Super", href: "#", id: "super", class: "category-button"},
+    {text: "Hyper", href: "#", id: "hyper", class: "category-button"},*/
 
 let html = [];
 
@@ -14,7 +15,7 @@ for (let item of menu) {
 
     html.push(
         `<li class="nav-item">
-            <a class="nav-link ${item.clase}" href="${item.href}" id="${item.id}">${item.text}</a>
+            <a class="nav-link ${item.class}" href="${item.href}" id="${item.id}">${item.text}</a>
         </li>`);
 }
 
