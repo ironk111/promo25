@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Tecnología y Programación</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #00aaff, #ff3300); /* Degradado de fondo */
+            color: #000; /* Color del texto a negro */
+        }
+        .quiz-container {
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease; /* Animación de entrada */
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa; /* Fondo para preguntas */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-check {
+            margin-bottom: 10px;
+        }
+        .form-check-input {
+            display: none; /* Ocultar el input por defecto */
+        }
+        .custom-radio {
+            position: relative;
+            display: block;
+            padding-left: 30px; /* Espacio para el círculo */
+            cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+        }
+        .custom-radio:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid #007bff; /* Color del borde */
+            border-radius: 50%; /* Círculo */
+            background-color: #fff; /* Fondo blanco */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+        .form-check-input:checked + .custom-radio:before {
+            background-color: #007bff; /* Color de fondo al seleccionar */
+        }
+        .form-check-input:checked + .custom-radio {
+            font-weight: bold; /* Texto en negrita cuando seleccionado */
+        }
+        .btn-primary {
+            transition: background-color 0.3s; /* Transición suave para el botón */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Color al pasar el mouse */
+        }
+        #result {
+            font-size: 2.5em; /* Aumentar tamaño del texto */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Centrar texto */
+            background: linear-gradient(45deg, #ff007f, #ffdd00); /* Degradado de colores */
+            -webkit-background-clip: text; /* Clip para el degradado */
+            -webkit-text-fill-color: transparent; /* Hacer el texto transparente para el clip */
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            margin-top: 20px; /* Margen superior */
+            border: 2px solid #000; /* Borde negro */
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #back-button {
+            margin-top: 20px; /* Espaciado superior */
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 1.2em; /* Tamaño de fuente */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+        }
+
+        #back-button:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el mouse */
+            transform: scale(1.05); /* Aumentar el tamaño ligeramente */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container quiz-container">
+    <h2 class="text-center">Quiz de Tecnología y Programación</h2>
+    
+    <form id="quizForm">
+        <div class="question">
+            <p>1. ¿Qué hace un programador?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question1" value="a" required id="question1-a">
+                <label class="custom-radio" for="question1-a">a) Escribir código</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question1" value="b" id="question1-b">
+                <label class="custom-radio" for="question1-b">b) Dibujar</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question1" value="c" id="question1-c">
+                <label class="custom-radio" for="question1-c">c) Hacer música</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. ¿Cuál de estos es un buscador de Internet?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question2" value="a" required id="question2-a">
+                <label class="custom-radio" for="question2-a">a) Google</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question2" value="b" id="question2-b">
+                <label class="custom-radio" for="question2-b">b) Word</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question2" value="c" id="question2-c">
+                <label class="custom-radio" for="question2-c">c) Excel</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. ¿Qué significa "descargar" algo?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question3" value="a" required id="question3-a">
+                <label class="custom-radio" for="question3-a">a) Borrar algo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question3" value="b" id="question3-b">
+                <label class="custom-radio" for="question3-b">b) Obtener algo de Internet</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question3" value="c" id="question3-c">
+                <label class="custom-radio" for="question3-c">c) Imprimir algo</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. ¿Qué es la programación?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question4" value="a" required id="question4-a">
+                <label class="custom-radio" for="question4-a">a) Es un arte</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question4" value="b" id="question4-b">
+                <label class="custom-radio" for="question4-b">b) Escribir instrucciones para una computadora</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question4" value="c" id="question4-c">
+                <label class="custom-radio" for="question4-c">c) Jugar videojuegos</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Qué hace un robot?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question5" value="a" required id="question5-a">
+                <label class="custom-radio" for="question5-a">a) Limpiar la casa</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question5" value="b" id="question5-b">
+                <label class="custom-radio" for="question5-b">b) Ayudar a las personas en tareas específicas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question5" value="c" id="question5-c">
+                <label class="custom-radio" for="question5-c">c) Contar historias</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar Respuestas</button>
+    </form>
+
+    <div id="result" class="mt-4" style="display: none;">
+        <h4 class="text-center">Resultados:</h4>
+        <p id="score" class="text-center"></p>
+    </div>
+    <a href="index.html"><button id="back-button" class="btn btn-primary">Volver</button></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+<script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let score = 0;
+
+        // Verificar las respuestas correctas
+        if (document.querySelector('input[name="question1"]:checked').value === 'a') {
+            score++;
+        }
+        if (document.querySelector('input[name="question2"]:checked').value === 'a') {
+            score++;
+        }
+        if (document.querySelector('input[name="question3"]:checked').value === 'b') {
+            score++;
+        }
+        if (document.querySelector('input[name="question4"]:checked').value === 'b') {
+            score++;
+        }
+        if (document.querySelector('input[name="question5"]:checked').value === 'b') {
+            score++;
+        }
+
+        // Multiplicar por 10 para obtener el puntaje total
+        let totalPoints = score * 10;
+
+        // Llamar a la función de confeti
+        confetti();
+
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('score').textContent = `¡Obtuviste ${totalPoints} puntos!.`;
+    });
+</script>
+
+</body>
+</html>

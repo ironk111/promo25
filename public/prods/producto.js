@@ -15,56 +15,56 @@ let data = [
     id: 1,
     nombre: "Benja",
     cumple: "27 de agosto",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/1.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Sport",
   },
   {
     id: 2,
     nombre: "Santino",
     cumple: "2 de febrero",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/2.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Super",
   },
   {
     id: 3,
     nombre: "Tiziano",
     cumple: "6 de septiembre",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/3.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Sport",
   },
   {
     id: 4,
     nombre: "Julián",
     cumple: "10 de mayo",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/4.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Super",
   },
   {
     id: 5,
     nombre: "Luciano",
     cumple: "16 de noviembre",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/5.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Vintage",
   },
   {
     id: 6,
     nombre: "Ramiro",
     cumple: "4 de febrero",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/6.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Hyper",
   },
   {
     id: 7,
     nombre: "Lucas",
     cumple: "31 de mayo",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/7.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Vintage",
   },
   {
     id: 8,
     nombre: "Iván",
     cumple: "21 de abril",
-    img: "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/8.jpg",
+    img: "/public/img/user-silhouette-file.svg",
     category: "Hyper",
   },
 ];
@@ -89,9 +89,9 @@ if (producto) {
                                 <div class="card-body">
                                     <h5 class="card-title">${producto.nombre}</h5>
                                     <p class="card-text poppins-light">Cumpleaños: ${producto.cumple}</p>
-                                    <p class="card-text poppins-light">Info: </p>
+                                    <p class="card-text poppins-light">Me gusta dibujar.</p>
                                     <h5 class="card-title">Redes: </h5>
-                                    <a href="#" class="btn btn-primary rounded-pill"></a>
+                                    <a href="https://www.instagram.com/benjaapesechea__0/" class="btn btn-secondary rounded-pill" target="_blank" rel="noopener noreferrer"><img src="/public/img/instagram-icon.svg" class="img-fluid" style="width: 32px; height: 32px;"></a>
                                 </div>
                             </div>
                         </div>

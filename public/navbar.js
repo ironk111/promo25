@@ -1,7 +1,7 @@
 let menu = [
-    {text: "Nosotros", href: "/about"},
-    {text: "Proyectos", href: "/proyects"},
-    
+    {text: "Nosotros", href: "#"},
+    {text: "Proyectos", href: "#"},
+    {text: "Quiz", href: "quiz.html"}
 ]
     /*{text: "Sport", href: "#", id: "sport", class: "category-button"},
     {text: "Super", href: "#", id: "super", class: "category-button"},
