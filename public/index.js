@@ -4,72 +4,72 @@ document.querySelector("h1").innerText = "Integrantes";
 let data = [
   {
     id: 1,
-    nombre: "Benja",
+    nombre: "Benjamín",
     cumple: "27 de agosto",
     img: "img/user-silhouette-file.svg",
-    category: "Sport",
+    category: "",
   },
   {
     id: 2,
     nombre: "Santino",
     cumple: "2 de febrero",
-    img: "img/user-silhouette-file.svg",
-    category: "Super",
+    img: "img/santino.jpeg",
+    category: "",
   },
   {
     id: 3,
     nombre: "Tiziano",
     cumple: "6 de septiembre",
-    img: "img/user-silhouette-file.svg",
-    category: "Sport",
+    img: "img/tiziano.jpeg",
+    category: "",
   },
   {
     id: 4,
     nombre: "Julián",
     cumple: "10 de mayo",
-    img: "img/user-silhouette-file.svg",
-    category: "Super",
+    img: "img/julian.jpeg",
+    category: "",
   },
   {
     id: 5,
     nombre: "Luciano",
     cumple: "16 de noviembre",
-    img: "img/user-silhouette-file.svg",
-    category: "Vintage",
+    img: "img/luciano.jpeg",
+    category: "",
   },
   {
     id: 6,
     nombre: "Ramiro",
     cumple: "4 de febrero",
     img: "img/user-silhouette-file.svg",
-    category: "Hyper",
+    category: "",
   },
   {
     id: 7,
     nombre: "Lucas",
     cumple: "31 de mayo",
-    img: "img/user-silhouette-file.svg",
-    category: "Vintage",
+    img: "img/lucas2.jpeg",
+    category: "",
   },
   {
     id: 8,
     nombre: "Iván",
     cumple: "21 de abril",
-    img: "img/user-silhouette-file.svg",
-    category: "Hyper",
+    img: "img/ivan4.jpeg",
+    category: "",
   },
 ];
 
 // Mostrar las cards en el section del body
 function card(product) {
   let cardsArray = product.map((producto) => `<div class="col">
-      <div class="card h-100 card-hover">
-        <div class="image-container">
+      <div class="card h-100">
+        <div class="image-container card-hover">
           <img src="${producto.img}" class="img-fluid" alt="${producto.nombre}">
         </div>
         <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text poppins-light">Cumpleaños: ${producto.cumple}</p>
+          <h5 class="card-title text-center">${producto.nombre}</h5>
+          
           <a href="prods/producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Más...</a>
         </div>
       </div>
@@ -79,7 +79,7 @@ function card(product) {
 }
 
 //Invoco la función y le paso el objeto entero
-card(data);
+//card(data);
 
 //-----------------------BUSQUEDA------------------------------
 
@@ -99,7 +99,7 @@ const filterList = () => {
   if (filterData.length > 0) {
     card(filterData);
   } else {
-    document.querySelector("section").innerHTML = '<p class="text-center">No se encontró nada.</p>';
+    document.querySelector("section").innerHTML = '<p class="text-center">Esa persona no está acá crack!</p>';
   }
 };
 
@@ -131,12 +131,10 @@ categoryButtons.forEach((button) => {
   });
 });
 
-//-----BOTON DE HOME-----eliminado por: está redireccionado con href en index.html
-// variable
-/*const homeButton = document.querySelector("#homeButton");
+// Loading cards
+const promiseCards = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(card(data))
+  }, 2000)
+})
 
-// Evento para mostrar todas las cards
-homeButton.addEventListener("click", () => {
-  document.querySelector("h1").innerText = "Dreams";
-  card(data);
-});*/

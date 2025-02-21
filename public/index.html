@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="theme-switcher.js"></script>
 <html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -57,29 +58,20 @@
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <!--acá se añaden los botones con js-->
               
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>-->
             </ul>
-            
-            <div class="d-flex" role="search">
-              <input class="form-control me-2 rounded-4" placeholder="Buscar" aria-label="Search" id="input">
-              <button class="btn btn-primary rounded-pill" id="search">Buscar</button>
-            </div>
+            <button id="themeToggleBtn" class="btn btn-primary">Modo oscuro</button>
           </div>
         </div>
       </nav>
 </header>
   <h1 class="text-center pt-4"></h1>
   <div class="container mx-auto">
-    <section class="row row-cols-1 row-cols-md-3 g-4 m-md-3">
+    <div class="d-flex justify-content-center" role="search">
+      <input class="form-control me-2 rounded-4 w-25" placeholder="..." aria-label="Search" id="input">
+      <button class="btn btn-primary rounded-pill" id="search">Buscar</button>
+    </div>
+    <section class="row row-cols-1 row-cols-md-3 g-4 m-md-3 d-flex justify-content-center">
+      <div class="spinner-border" role="status""></div>
     </section>
   </div>
   <script src="navbar.js"></script>
