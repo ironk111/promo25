@@ -118,7 +118,7 @@ function filterByCategory(category) {
   if (filteredProducts.length > 0) {
     card(filteredProducts);
   } else {
-    document.querySelector("section").innerHTML = '<p class="text-center">Todavía no hay dreams en esta categoría.</p>';
+    document.querySelector("section").innerHTML = '<p class="text-center">Todavía no.</p>';
   }
 }
 

@@ -108,5 +108,5 @@ if (producto) {
             </div>`;
     document.querySelector("main").innerHTML = card;
 } else {
-    document.querySelector("main").innerHTML = `<p>Ese no está.</p>`;
+    document.querySelector("main").innerHTML = `<p>Esa persona no está acá crack!</p>`;
 }
