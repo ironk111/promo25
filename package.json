@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "@vercel/analytics": "^1.5.0",
+    "bootstrap": "^5.3.3",
+    "firebase": "^11.3.1"
   }
 }

@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "promo2025proa"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "promo2025proa-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
