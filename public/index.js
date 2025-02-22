@@ -70,7 +70,7 @@ function card(product) {
         <div class="card-body">
           <h5 class="card-title text-center">${producto.nombre}</h5>
           
-          <a href="prods/producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Más...</a>
+          <a href="producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Más...</a>
         </div>
       </div>
     </div>`);

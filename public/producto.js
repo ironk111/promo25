@@ -23,7 +23,7 @@ let data = [
     id: 2,
     nombre: "Santino Jesús Aguirre",
     cumple: "2 de febrero",
-    img: "/public/img/user-silhouette-file.svg",
+    img: "/public/img/santino.jpeg",
     ig: "https://www.instagram.com/sanntiiiaguirre/",
     descripcion: "¡Hola! \u{1F60E} soy estudiante de la escuela ProA, durante estos seis años he aprendido y disfrutado de estar con mis compañeros pasando por muchas aventuras en este camino. <br><br>A día de hoy estudio inglés y catalán, intentó ser mejor persona cada día, disfrutando de cada momento a pleno, además intento enfocarme en mis proyectos a futuro, en base a mis sueños y aspiraciones. <br><br>\u{26BD}Fanático de Messi, Barcelona y Boca en las buenas y en las malas.",
   },
