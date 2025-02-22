@@ -23,7 +23,7 @@ let data = [
     id: 2,
     nombre: "Santino Jesús Aguirre",
     cumple: "2 de febrero",
-    img: "img/santino.jpeg",
+    img: "img/santino.webp",
     ig: "https://www.instagram.com/sanntiiiaguirre/",
     descripcion: "¡Hola! \u{1F60E} soy estudiante de la escuela ProA, durante estos seis años he aprendido y disfrutado de estar con mis compañeros pasando por muchas aventuras en este camino. <br><br>A día de hoy estudio inglés y catalán, intentó ser mejor persona cada día, disfrutando de cada momento a pleno, además intento enfocarme en mis proyectos a futuro, en base a mis sueños y aspiraciones. <br><br>\u{26BD}Fanático de Messi, Barcelona y Boca en las buenas y en las malas.",
   },
@@ -73,7 +73,7 @@ let data = [
     cumple: "21 de abril",
     img: "img/ivan2.jpeg",
     ig: "https://www.instagram.com/ivansuelov/",
-    descripcion: 'Soy Iván, algunas personas me conocen como "Lorkilos", o también como "Memi", por las personas mas cercanas a mí. Nací el 21 de abril de 2008, en Río Cuarto, llamado antiguamente "El Imperio". Soy un gran aficionado de los videojuegos, el rock, y el fútbol, pero toda mi pasión radica en mi querido Club Atlético Boca Juniors y en la banda que le da sentido a mi vida; Patricio Rey Y Sus Redonditos De Ricota. Entre las cosas que disfruto hacer se pueden destacar tocar la guitarra, hacer videos y transmisiones en vivo, jugar a la pelota con mis amigos y salir a fiestas con ellos. Siempre busco tener experiencias que me dejen buenos recuerdos de mi juventud, superarme a mí mismo cada que puedo y poder darles algo positivo a las personas que me rodean. Ladren lo que ladren los demás.',
+    descripcion: 'Soy Iván, algunas personas me conocen como "Lorkilos", o también como "Memi", por las personas mas cercanas a mí. <br><br>Nací el 21 de abril de 2008, en Río Cuarto, llamado antiguamente "El Imperio". Soy un gran aficionado de los videojuegos, el rock, y el fútbol, pero toda mi pasión radica en mi querido Club Atlético Boca Juniors y en la banda que le da sentido a mi vida; Patricio Rey Y Sus Redonditos De Ricota. Entre las cosas que disfruto hacer se pueden destacar tocar la guitarra, hacer videos y transmisiones en vivo, jugar a la pelota con mis amigos y salir a fiestas con ellos. Siempre busco tener experiencias que me dejen buenos recuerdos de mi juventud, superarme a mí mismo cada que puedo y poder darles algo positivo a las personas que me rodean. <br><br>Ladren lo que ladren los demás.',
   },
 ];
 
@@ -99,7 +99,7 @@ if (producto) {
                                     <p class="card-text poppins-light">Cumpleaños: ${producto.cumple}</p>
                                     <p class="card-text poppins-light">Un poco sobre mí: <br>${producto.descripcion}</p>
                                     <h5 class="card-title">Redes: </h5>
-                                    <a href="${producto.ig}" class="btn btn-secondary rounded-pill" target="_blank" rel="noopener noreferrer"><img src="/img/instagram-icon.svg" class="img-fluid" style="width: 32px; height: 32px;"></a>
+                                    <a href="${producto.ig}" class="btn btn-secondary rounded-pill" target="_blank" rel="noopener noreferrer"><img src="img/instagram-icon.svg" class="img-fluid" style="width: 32px; height: 32px;"></a>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ let data = [
     id: 2,
     nombre: "Santino",
     cumple: "2 de febrero",
-    img: "img/santino.jpeg",
+    img: "img/santino.webp",
     category: "",
   },
   {
@@ -68,7 +68,7 @@ function card(product) {
           <img src="${producto.img}" class="img-fluid" alt="${producto.nombre}">
         </div>
         <div class="card-body">
-          <h5 class="card-title text-center">${producto.nombre}</h5>
+          <h3 class="card-title text-center">${producto.nombre}</h3>
           
           <a href="producto.html?prod=${producto.id}" class="btn btn-primary rounded-pill">Más...</a>
         </div>
