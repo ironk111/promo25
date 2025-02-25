@@ -38,7 +38,7 @@ let data = [
     cumple: "16 de noviembre",
     img: "img/luciano2.jpeg",
     ig: "https://www.instagram.com/luchiii_fz/",
-    descripcion: "Holaaa, mi nombre es Luciano y formo parte de la primera promoción de ProA Huinca Renancó. <br><br>En estos años en la escuela aprendí sobre tecnología y programación, siempre pasándola bien con mis amigos, fuera de la escuela lo que más me gusta hacer es andar en moto, juntarme con mis amigos, jugar al futbol y salir al boliche.",
+    descripcion: "Holaaa, mi nombre es Luciano y formo parte de la primera promoción de ProA Huinca Renancó. <br><br>En estos años en la escuela aprendí sobre tecnología y programación, siempre pasándola bien con mis amigos, fuera de la escuela lo que más me gusta hacer es andar en moto, juntarme con mis amigos, jugar al fútbol y salir al boliche.",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ let data = [
     cumple: "4 de febrero",
     img: "img/user-silhouette-file.svg",
     ig: "https://www.instagram.com/ramii_111r/",
-    descripcion: "",
+    descripcion: "Hola mi nombre es Ramiro y formo parte de la primera promoción de ProA (Huinca Renancó). </br></br>En estos años en la escuela aprendí mucho sobre la tecnología y la programación\u{1F4BB}, aprecio mucho a mis compañeros y mis amigos. Fuera de la escuela lo que más me gusta hacer es andar en moto, juntarme con mis amigos, y salir de joda. </br></br>Carreo los asados de la promo &#x1F61C",
   },
   {
     id: 7,
