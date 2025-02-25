@@ -1,14 +1,3 @@
-/*class producto {
-    constructor(titulo, detalle, precio, stock, imagen) {
-        this.titulo = titulo,
-        this.detalle = detalle,
-        this.precio = precio,
-        this.stock = stock,
-        this.imagen = imagen
-    }
-}*/
-
-//let bmw = new producto("BMW 3 Series GT M Sport", "Powered by the four-cylinder turbo diesel N47, 184 hp. Acceleration to 100 km/h comes in just under 8 seconds. 4.9 to 5.1 liters per 100 kilometers.", "$1.000", 2, "https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/1.jpg");
 
 let data = [
   {
@@ -79,7 +68,7 @@ let data = [
 
 // Obtener ID del producto de la URL
 const params = new URLSearchParams(window.location.search);
-const productId = parseInt(params.get('prod'), 10);
+const productId = parseInt(params.get('integ'), 10);
 
 // Buscar el producto en el array
 const producto = data.find(item => item.id === productId);
