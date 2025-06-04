@@ -1,5 +1,5 @@
 let menu = [
-    {text: "Nosotros", href: "#"},
+    {text: "Nosotros", href: "nosotros.html"},
     {text: "Proyectos", href: "#"},
     {text: "Quiz para niños", href: "quiz.html"}
 ]
