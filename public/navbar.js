@@ -1,7 +1,8 @@
 let menu = [
     {text: "Nosotros", href: "nosotros.html"},
     {text: "Proyectos", href: "#"},
-    {text: "Quiz para niños", href: "quiz.html"}
+    {text: "Quiz para niños", href: "quiz.html"},
+    {text: "Tu Gaseosa", href: "muro.html"}
 ]
 
 let html = [];

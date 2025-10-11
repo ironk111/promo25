@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guerra de las Gaseosas</title>
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/loguito.ico" />
+
+  <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top center, #222 0%, #000 100%);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      min-height: 100vh; /* asegura que ocupe toda la pantalla */
+    }
+
+    header.donations-header {
+        background: rgba(0,0,0,0.6);
+        border-bottom: 1px solid #444;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        gap: 10px;
+    }
+
+    header.donations-header .logo img {
+        display: block;
+    }
+
+    header.donations-header .header-center {
+        flex: 1 1 300px;
+    }
+
+    header.donations-header .header-center h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    header.donations-header .header-center p {
+        margin: 4px 0;
+        font-size: 0.95rem;
+    }
+
+    header.donations-header .donation-levels div {
+        font-size: 0.85rem;
+        margin-bottom: 2px;
+    }
+
+    /* Diferentes estilos de botellas según niveles */
+    .nivel1 { font-size: 1.2rem; }   /* botellita común */
+    .nivel2 { font-size: 1.5rem; color: gold; }  /* botellita dorada */
+    .nivel3 { font-size: 1.8rem; color: #ff1e00; text-shadow: 0 0 6px #f34848; }  /* patrocinador */
+
+    .counter {
+      margin-top: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Mural de botellas */
+    .bottle-grid {
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      gap: 50px;
+      justify-items: center;
+      align-items: center;
+      padding: 10px;
+      margin: auto;
+      max-width: 95vw;
+    }
+
+    .bottle {
+      width: 40px;
+      height: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .bottle:hover {
+      transform: scale(1.4);
+      z-index: 10;
+    }
+
+    .bottle img {
+      width: 100%;
+      height: auto;
+      border-radius: 2px;
+    }
+
+    .donor-name, .count {
+      position: absolute;
+      bottom: -12px;
+      font-size: 10px;
+      color: white;
+      text-shadow: 0 0 2px black;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .count {
+      position: absolute;
+      bottom: -22px;
+      font-size: 10px;
+      color: white;
+      text-shadow: 0 0 2px black;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .bottle.premium img {
+      filter: drop-shadow(0 0 4px gold);
+    }
+
+    .tooltip {
+      position: fixed;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: none;
+      pointer-events: none;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <header class="donations-header d-flex align-items-center justify-content-between px-3 py-2">
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html">
+        <img src="img/logo-promo25-removebg.png" alt="PR25" width="70" height="70">
+        </a>
+    </div>
+
+    <!-- Título y contador central -->
+    <div class="header-center text-center">
+        <h2>Muro de las Gaseosas</h2>
+        <p>Cada botella representa una persona que nos ayudó a llegar a nuestro viaje de egresados 🚌💨</p>
+        <p>1 gaseosa = $2.000 💸 | <a href="link-de-donacion" target="_blank" style="color:#0d6efd;">Pagate la gaseosa</a></p>
+        <div class="counter">
+        <span id="total-bottles">0</span> gaseosas donadas de <span id="goal">400</span> 🎯
+        </div>
+    </div>
+
+    <!-- Niveles de donación -->
+    <div class="donation-levels text-end">
+        <div><span class="nivel1">O</span> Nivel 1: 1 gaseosa</div>
+        <div><span class="nivel2">O</span> Nivel 2: 5 gaseosas</div>
+        <div><span class="nivel3">O</span> Nivel 3: Patrocinador</div>
+    </div>
+  </header>
+
+
+  <section class="bottle-grid" id="bottleGrid"></section>
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+  async function cargarDonantes() {
+    // URL pública de tu Google Sheets en formato CSV
+    const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSy3cfAixAN3zlEaaGrLn2yUrcg3R5TTXRudb4m8_L1LuraBz2vIMZWm0rfDq7-K8LxN6ueMcZB06ep/pub?output=csv';
+
+    const response = await fetch(SHEET_URL);
+    const data = await response.text();
+
+    // Convertir CSV a array de objetos
+    const rows = data.trim().split('\n').map(r => r.split(','));
+    const headers = rows.shift();
+    const donantes = rows.map(r => ({
+        nombre: r[0].replace(/^"|"$/g, '').trim(),
+        cantidad: Number(r[1].replace(/^"|"$/g, '').trim()) || 0
+    }));
+
+
+
+    const grid = document.getElementById('bottleGrid');
+    const tooltip = document.getElementById('tooltip');
+    grid.innerHTML = '';
+
+    let total = 0;
+    donantes.forEach(donante => {
+      total += donante.cantidad;
+
+      const div = document.createElement('div');
+      div.className = donante.cantidad >= 5 ? 'bottle premium' : 'bottle';
+      div.innerHTML = `
+        <img src="./img/botella-de-vidrio.png" alt="Botella">
+        <span class="donor-name">${donante.nombre}</span>
+        <span class="count">x${donante.cantidad}</span>
+      `;
+
+      // 🔹 Tooltip
+    div.addEventListener('mouseenter', () => {
+        tooltip.style.display = 'block';
+    });
+
+    div.addEventListener('mousemove', (e) => {
+        tooltip.style.left = (e.clientX + 12) + 'px';
+        tooltip.style.top = (e.clientY + 12) + 'px';
+        tooltip.innerHTML = `💖 ${donante.nombre}<br>${donante.cantidad} gaseosa${donante.cantidad > 1 ? 's' : ''}`;
+    });
+
+    div.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+    });
+
+    // 🔹 Esta línea es FUNDAMENTAL para que aparezca la botella
+    grid.appendChild(div);
+    });
+
+    document.getElementById('total-bottles').textContent = total;
+  }
+
+  cargarDonantes();
+</script>
+
+</body>
+</html>
