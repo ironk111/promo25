@@ -49,6 +49,11 @@
         margin: 0;
         font-size: 1.8rem;
         font-weight: bold;
+        background: linear-gradient(135deg, #ff4d4d, #ff914d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
     }
 
     header.donations-header .header-center p {
@@ -143,6 +148,24 @@
       z-index: 9999;
       white-space: nowrap;
     }
+
+    .donate-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff2d2dff, #ff624dff);
+      color: white;
+      text-decoration: none;
+      padding: 8px 18px ;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .donate-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(255, 77, 77, 0.5);
+      background: linear-gradient(135deg, #ff6b6b, #ffa64d);
+    }
+
   </style>
 </head>
 <body>
@@ -158,7 +181,7 @@
     <div class="header-center text-center">
         <h2>Muro de las Gaseosas</h2>
         <p>Cada botella representa una persona que nos ayudó a llegar a nuestro viaje de egresados 🚌💨</p>
-        <p>1 gaseosa = $2.000 💸 | <a href="link-de-donacion" target="_blank" style="color:#0d6efd;">Pagate la gaseosa</a></p>
+        <p>1 gaseosa = $2.000 💸 | <a href="https://link.mercadopago.com.ar/sumatealbrindis" target="_blank" class="donate-btn">Pagate la gaseosa</a></p>
         <div class="counter">
         <span id="total-bottles">0</span> gaseosas donadas de <span id="goal">400</span> 🎯
         </div>
