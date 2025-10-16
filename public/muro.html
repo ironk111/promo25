@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guerra de las Gaseosas</title>
+  <title>Muro de las Gaseosas</title>
   <link rel="stylesheet" href="css/custom.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
         margin: 0;
         font-size: 1.8rem;
         font-weight: bold;
-        background: linear-gradient(135deg, #ff4d4d, #ff914d);
+        background: linear-gradient(135deg, #ff2d2dff, #ff624dff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -80,13 +80,15 @@
     /* Mural de botellas */
     .bottle-grid {
       display: grid;
-      grid-template-columns: repeat(20, 1fr);
-      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+      gap: 48px;
       justify-items: center;
       align-items: center;
       padding: 10px;
-      margin: auto;
-      max-width: 95vw;
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+      box-sizing: border-box;
     }
 
     .bottle {
@@ -124,7 +126,7 @@
 
     .count {
       position: absolute;
-      bottom: -22px;
+      bottom: -24px;
       font-size: 10px;
       color: white;
       text-shadow: 0 0 2px black;
@@ -134,6 +136,10 @@
 
     .bottle.premium img {
       filter: drop-shadow(0 0 4px gold);
+    }
+
+    .bottle.full img {
+      filter: drop-shadow(0 0 6px #ff1e00);
     }
 
     .tooltip {
@@ -163,8 +169,10 @@
     .donate-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 14px rgba(255, 77, 77, 0.5);
-      background: linear-gradient(135deg, #ff6b6b, #ffa64d);
+      background: linear-gradient(135deg, #ff4848ff, #ff854dff);
     }
+
+
 
   </style>
 </head>
@@ -183,8 +191,10 @@
         <p>Cada botella representa una persona que nos ayudó a llegar a nuestro viaje de egresados 🚌💨</p>
         <p>1 gaseosa = $2.000 💸 | <a href="https://link.mercadopago.com.ar/sumatealbrindis" target="_blank" class="donate-btn">Pagate la gaseosa</a></p>
         <div class="counter">
-        <span id="total-bottles">0</span> gaseosas donadas de <span id="goal">400</span> 🎯
+        <span id="total-bottles">0</span> gaseosas donadas de <span id="goal">500</span> 🎯
         </div>
+
+
     </div>
 
     <!-- Niveles de donación -->
@@ -226,7 +236,16 @@
       total += donante.cantidad;
 
       const div = document.createElement('div');
-      div.className = donante.cantidad >= 5 ? 'bottle premium' : 'bottle';
+      
+      // Asignar clase según la cantidad donada
+      if (donante.cantidad >= 10) {
+        div.className = 'bottle full';        // 🔴 sombra roja
+      } else if (donante.cantidad >= 5) {
+        div.className = 'bottle premium';     // 🟡 dorada
+      } else {
+        div.className = 'bottle';             // ⚪ normal
+      }
+      
       div.innerHTML = `
         <img src="./img/botella-de-vidrio.png" alt="Botella">
         <span class="donor-name">${donante.nombre}</span>
@@ -248,7 +267,7 @@
         tooltip.style.display = 'none';
     });
 
-    // 🔹 Esta línea es FUNDAMENTAL para que aparezca la botella
+    // Esta línea es FUNDAMENTAL para que aparezca la botella
     grid.appendChild(div);
     });
 
@@ -256,6 +275,7 @@
   }
 
   cargarDonantes();
+
 </script>
 
 </body>
